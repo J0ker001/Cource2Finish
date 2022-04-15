@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import pro.sky.cource2finish.Interface.QuestionService;
 import pro.sky.cource2finish.Service.JavaQuestionService;
 import pro.sky.cource2finish.ClassQuestion.Question;
 
@@ -14,11 +15,13 @@ import java.util.Collection;
 @RequestMapping("/exam/java")
 public class JavaQuestionController {
 
-    private final JavaQuestionService javaQuestionService;
 
-    public JavaQuestionController(JavaQuestionService javaQuestionService) {
+    private final QuestionService javaQuestionService;
+
+    public JavaQuestionController(QuestionService javaQuestionService) {
         this.javaQuestionService = javaQuestionService;
     }
+
 
     @GetMapping
     public Collection<Question> getAll() {
