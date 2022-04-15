@@ -1,5 +1,6 @@
 package pro.sky.cource2finish.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +14,7 @@ import java.util.Collection;
 @RequestMapping("/exam/java")
 public class JavaQuestionController {
 
-    public final JavaQuestionService javaQuestionService;
+    private final JavaQuestionService javaQuestionService;
 
     public JavaQuestionController(JavaQuestionService javaQuestionService) {
         this.javaQuestionService = javaQuestionService;

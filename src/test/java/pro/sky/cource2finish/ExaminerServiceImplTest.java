@@ -23,17 +23,17 @@ class ExaminerServiceImplTest {
     public JavaQuestionService javaQuestionServiceMock;
 
     @InjectMocks
-    ExaminerServiceImpl examinerService;
+    private ExaminerServiceImpl examinerService;
 
     @Test
     void shouldGetRandomAmountQuestions() {
-        var a = new Question("0", "1");
-        var b = new Question("2", "3");
-        when(javaQuestionServiceMock.getRandomQuestion()).thenReturn(a).thenReturn(b);
-        when(javaQuestionServiceMock.getAll()).thenReturn( new ArrayList<>(List.of(a,b)));
+        var questionOne = new Question("0", "1");
+        var questionTwo = new Question("2", "3");
+        when(javaQuestionServiceMock.getRandomQuestion()).thenReturn(questionOne).thenReturn(questionTwo);
+        when(javaQuestionServiceMock.getAll()).thenReturn(new ArrayList<>(List.of(questionOne, questionTwo)));
         var x = examinerService.getQuestions(2);
         assertEquals(2, x.size());
-        Collection<Question> arr = new ArrayList<>(List.of(a, b));
+        Collection<Question> arr = new ArrayList<>(List.of(questionOne, questionTwo));
         TestUtils.assertEqualCollections(arr, x);
     }
 }

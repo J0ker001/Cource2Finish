@@ -11,17 +11,15 @@ import pro.sky.cource2finish.ClassQuestion.Question;
 
 import java.util.*;
 
-
 @Service
 public class JavaQuestionService implements QuestionService {
 
     private Random random = new Random(1);
-    private Set<Question> questionSet = new HashSet<>();
+    private Set<Question> questionSet;
 
     private int random(int count) {
         return random.nextInt(count);
     }
-
 
     public JavaQuestionService(@Qualifier("javaQuestionInitialize") QuestionInitializer questionInitializer) {
         this.questionSet = questionInitializer.getQuestions();
@@ -31,7 +29,7 @@ public class JavaQuestionService implements QuestionService {
     public Question add(String question, String answer) {
         Question questionX = new Question(question, answer);
         if (questionSet.add(new Question(question, answer)) == false) {
-            throw new AlreadyExists("Уже существует");
+            throw new AlreadyExists();
         }
         return questionX;
     }
@@ -39,7 +37,7 @@ public class JavaQuestionService implements QuestionService {
     @Override
     public Question add(Question question) {
         if (questionSet.add(question) == false) {
-            throw new AlreadyExists("Уже существует");
+            throw new AlreadyExists();
         }
         return question;
     }
@@ -47,7 +45,7 @@ public class JavaQuestionService implements QuestionService {
     @Override
     public Question remove(Question question) {
         if (questionSet.contains(question) != true) {
-            throw new NotFound("Такого нет");
+            throw new NotFound();
         }
         questionSet.remove(question);
         return question;

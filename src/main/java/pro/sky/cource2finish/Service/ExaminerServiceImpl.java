@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Service
 public class ExaminerServiceImpl implements ExaminerService {
-    JavaQuestionService javaQuestionService;
+    private final JavaQuestionService javaQuestionService;
 
     public ExaminerServiceImpl(JavaQuestionService javaQuestionService) {
         this.javaQuestionService = javaQuestionService;

@@ -9,13 +9,11 @@ import pro.sky.cource2finish.ClassQuestion.Question;
 
 import java.util.Collection;
 
-;
-
 @RestController
 @RequestMapping("/exam")
 public class ExamController {
 
-    ExaminerService examinerService;
+    private final ExaminerService examinerService;
 
     public ExamController(ExaminerService examinerService) {
         this.examinerService = examinerService;

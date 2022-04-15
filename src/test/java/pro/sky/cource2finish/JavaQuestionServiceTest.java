@@ -16,8 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class JavaQuestionServiceTest {
 
-
-    JavaQuestionService javaQuestionService = new JavaQuestionService(new EmptyQuestionInitializer());
+    private final JavaQuestionService javaQuestionService = new JavaQuestionService(new EmptyQuestionInitializer());
 
     @Test
     void shouldQuestionPlusAnswerAdd() {
